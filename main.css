@@ -1,0 +1,25 @@
+.top-header {
+    width: 100%;
+    z-index: 1000;
+}
+
+.top-header h1 {
+    margin: 0 auto;
+    font-size: 3rem;
+    font-family: 'cherloine', cursive;
+}
+
+/* NAV BAR */
+nav {
+    background: #ffffff5e;
+    padding: 11px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0,1)
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
