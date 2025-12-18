@@ -51,6 +51,15 @@ body {
   font-family: 'cherolina', cursive;
 }
 
+.page-label {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: #333;
+  background: #ffffff8a;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
 nav { background: #ffffff5e; padding: 11px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
 nav ul li { padding: 0 15px; }
@@ -187,7 +196,7 @@ section { padding: 60px 20px; text-align: center; }
 .shop-preview p { margin: 0 0 20px; }
 
 .review-banner {
-  background-image: url('images/5D0A1832.jpg'); /* swap later */
+  background-image: url('images/A49A7240.jpg'); /* swap later */
   background-size: cover;
   background-position: center;
   padding: 300px 0;
@@ -262,6 +271,7 @@ form input:focus { border-color: #77867ebf; outline: none; }
 /* Mobile */
 @media (max-width: 768px) {
   .top-header { flex-direction: column; padding: 20px 10px; }
+  .page-label { margin-top: 8px; font-size: 0.85rem; }
   nav ul { flex-direction: column; padding: 0; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
