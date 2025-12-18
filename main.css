@@ -51,6 +51,14 @@ body {
   font-family: 'cherolina', cursive;
 }
 
+.header-title .logo-wild {
+  color: #77867ebc;
+}
+
+.header-title .logo-era {
+  color: #ffffff;
+}
+
 .page-label {
   font-size: 1rem;
   letter-spacing: 2px;

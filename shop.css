@@ -62,6 +62,14 @@
     font-family: 'cherolina', cursive;
 }
 
+.top-header .header-title .logo-wild {
+    color: #77867ebc;
+}
+
+.top-header .header-title .logo-era {
+    color: #ffffff;
+}
+
 .top-header .page-label {
     font-size: 1rem;
     letter-spacing: 2px;
