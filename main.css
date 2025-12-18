@@ -117,15 +117,15 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
-  border: 2px solid #000;
-  color: #000;
+  border: 2px solid #ffffff;
+  color: #ffffff;
   background-color: transparent;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .button1:hover, .button2:hover, .button3:hover,
 .button1:focus, .button2:focus, .button3:focus {
-  color: #000000;
+  color: #ffffff;
   background-color: #77867ebc;
   text-decoration: none;
   outline: none;
