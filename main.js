@@ -1,103 +1,89 @@
-function toggleMenu() {
-    var menu = document.querySelector('.menu');
-    menu.classList.toggle('show');
-}
+// Wildera site JS
 
-document.querySelector('.menu-button').addEventListener('click', toggleMenu);
-
+// Smooth-scroll for in-page anchors (e.g., #about, #contact)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+  anchor.addEventListener('click', function (e) {
+    const targetSelector = this.getAttribute('href');
+    const target = document.querySelector(targetSelector);
+
+    // Only intercept if the target exists on the current page
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 });
 
-function changeImageSource() {
-    const video = document.querySelector('.main-banner video');
-    if (video) {  // Check if the element exists
-        if (window.matchMedia("(max-width: 768px)").matches) {
-            video.src = 'images/Sequence 01_1_small.mp4';
-        } else {
-            video.src = 'images/Sequence 01_1.mp4';
-        }
-    }
-}
+// EmailJS (only initialize + bind if the contact form exists on this page)
+(function () {
+  const contactForm = document.getElementById('contact-form');
+  if (!contactForm) return;
 
+  // NOTE: Update these to your Wildera EmailJS Service ID + Template ID when ready.
+  // Keeping existing values avoids breaking current functionality.
+  const EMAILJS_SERVICE_ID = 'hannahansenphotography';
+  const EMAILJS_TEMPLATE_ID = 'template_k7a4rl5';
+  const EMAILJS_PUBLIC_KEY = 'ST_aM3HmS9Oq1D3Hf';
 
-// Initialize EmailJS
-(function(){
-    emailjs.init("ST_aM3HmS9Oq1D3Hf");  // Use your Public Key here
-})();
+  if (typeof emailjs === 'undefined') {
+    console.error('EmailJS is not loaded. Make sure the EmailJS CDN script is included.');
+    return;
+  }
 
-// Function to format the phone number as 000-000-0000
-function formatPhoneNumber(value) {
-    // Remove all non-digit characters
-    value = value.replace(/\D/g, "");
+  emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    // Format phone number in the form of 000-000-0000
+  function formatPhoneNumber(value) {
+    value = value.replace(/\D/g, '');
+
     if (value.length > 3 && value.length <= 6) {
-        return value.slice(0, 3) + "-" + value.slice(3);
+      return value.slice(0, 3) + '-' + value.slice(3);
     } else if (value.length > 6) {
-        return value.slice(0, 3) + "-" + value.slice(3, 6) + "-" + value.slice(6, 10);
+      return value.slice(0, 3) + '-' + value.slice(3, 6) + '-' + value.slice(6, 10);
     }
     return value;
-}
+  }
 
-// Add an event listener for form submission
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const phoneInput = document.querySelector("input[name='phone']");
-    const formattedPhone = formatPhoneNumber(phoneInput.value);
-
-    // Validate phone number format
-    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-    if (!phoneRegex.test(formattedPhone)) {
-        displayMessage("Invalid phone number. Please enter the number in the format 000-000-0000.", "error");
-        return;
-    }
-
-    // Update phone input field with the formatted value
-    phoneInput.value = formattedPhone;
-
-    // Send email via EmailJS
-    emailjs.sendForm('hannahansenphotography', 'template_k7a4rl5', this)
-        .then(function() {
-            displayMessage("Your contact has been sent successfully!", "success");
-            document.getElementById('contact-form').reset(); // Reset the form
-        }, function(error) {
-            displayMessage('Failed to send contact: ' + JSON.stringify(error), "error");
-        });
-});
-
-// Display message function (for success and error messages)
-function displayMessage(message, type) {
+  function displayMessage(message, type) {
     const formMessage = document.getElementById('contact-message');
-    formMessage.style.display = 'block'; // Show the message
+    if (!formMessage) return;
 
-    // Change the color based on message type
-    if (type === "success") {
-        formMessage.style.color = 'green';
-    } else if (type === "error") {
-        formMessage.style.color = 'red';
-    }
-
-    // Set the message text
+    formMessage.style.display = 'block';
+    formMessage.style.color = type === 'success' ? 'green' : 'red';
     formMessage.textContent = message;
 
-    // Hide the message after 5 seconds
     setTimeout(() => {
-        formMessage.style.display = 'none';
+      formMessage.style.display = 'none';
     }, 5000);
-}
+  }
 
-// Automatically format phone number as the user types
-document.querySelector("input[name='phone']").addEventListener('input', function(event) {
-    const formattedPhone = formatPhoneNumber(event.target.value);
-    event.target.value = formattedPhone;
-});
+  const phoneInput = document.querySelector("input[name='phone']");
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function (event) {
+      event.target.value = formatPhoneNumber(event.target.value);
+    });
+  }
 
-changeImageSource();
-window.addEventListener('resize', changeImageSource);
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (phoneInput) {
+      const formattedPhone = formatPhoneNumber(phoneInput.value);
+      const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+
+      if (!phoneRegex.test(formattedPhone)) {
+        displayMessage('Invalid phone number. Use 000-000-0000.', 'error');
+        return;
+      }
+      phoneInput.value = formattedPhone;
+    }
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+      .then(() => {
+        displayMessage('Your message has been sent successfully!', 'success');
+        contactForm.reset();
+      })
+      .catch((error) => {
+        displayMessage('Failed to send message: ' + JSON.stringify(error), 'error');
+      });
+  });
+})();

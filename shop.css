@@ -56,10 +56,19 @@
     z-index: 1000;
 }
 
-.top-header h1 {
+.top-header .header-title {
     margin: 0;
     font-size: 3rem;
     font-family: 'cherolina', cursive;
+}
+
+.top-header .page-label {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #333;
+    background: #ffffff8a;
+    padding: 6px 12px;
+    border-radius: 999px;
 }
 
 /* navigation menu styling */
@@ -130,9 +139,14 @@ nav {
         text-align: center;
     }
 
-    .top-header h1 {
-        margin: 0 auto;
-        font-size: 1.25rem;
+    .top-header .header-title {
+    margin: 0 auto;
+    font-size: 1.25rem;
+    }
+
+    .top-header .page-label {
+        margin-top: 8px;
+        font-size: 0.85rem;
     }
 }
 
