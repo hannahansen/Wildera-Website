@@ -1,0 +1,311 @@
+@font-face {
+    font-family: 'cherolina';
+    src: url('fonts/cherolina/Cherolina.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* menu button */
+#menu-toggle {
+    display: none;
+}
+
+.menu {
+    display: none;
+}
+
+.menu-button {
+    display: block;
+}
+
+#menu-toggle:checked + .menu-button span {
+    visibility: hidden;
+}
+
+#menu-toggle:checked + .menu-button + .menu {
+    display: block;
+}
+
+#menu-toggle:checked + .menu-button::after {
+    content: "X";
+    color: #333;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    visibility: visible;
+}
+
+/* overall header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, #77867e, #77867e00);
+    padding: 11px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.top-header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-family: 'cherolina', cursive;
+}
+
+/* navigation menu styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    color: #000;
+}
+
+body {
+    padding-top: 0px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation Bar */
+nav {
+    background: #ffffff5e;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Navigation Bar adjustments for mobile devices */
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        padding: 20px 10px;
+        font-size: 5px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+
+    .menu-button {
+        position: absolute;
+        top: 20px;
+        right: 10px;
+        font-size: .6rem;
+        text-align: center;
+    }
+
+    .top-header h1 {
+        margin: 0 auto;
+        font-size: 1.25rem;
+    }
+}
+
+/* General resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+/* Prices Section */
+.prices-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    margin-top: 40px;
+}
+
+.wedding-bundle-offer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 80%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wedding-bundle-offer img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+.price-details {
+    width: 50%;
+    padding: 40px;
+}
+
+.price-details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.price-details ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.price-details ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* body buttons */
+.button1 {
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    border: 2px solid #000;
+    color: #000;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+.button1:hover,
+.button1:focus {
+    color: #000000;
+    background-color: #77867ebc;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Connect */
+.connect-content {
+    /* background: #ffffff; */
+    color: #53605be1;
+    padding: 50px 0;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.connect-content h2 {
+    margin-bottom: 20px;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.connect-content a {
+    color: #141414b8;
+    text-decoration: none;
+    margin: 0 20px;
+    display: inline-block;
+}
+
+.connect-content a:hover {
+    text-decoration: underline;
+}
+
+.connect-content img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .connect-content a {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #77867e72;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-content {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .wedding-bundle-offer {
+        flex-direction: column;
+    }
+
+    .wedding-bundle-offer img, .price-details {
+        width: 100%;
+    }
+
+    .price-details {
+        padding: 20px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 16px;
+    }
+    .button1 {
+        margin-bottom: 20px;
+    }
+}
