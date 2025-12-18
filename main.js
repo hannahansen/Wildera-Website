@@ -46,7 +46,7 @@ function formatPhoneNumber(value) {
 }
 
 // Add an event listener for form submission
-document.getElementById('inquiry-form').addEventListener('submit', function(event) {
+document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
     const phoneInput = document.querySelector("input[name='phone']");
@@ -65,16 +65,16 @@ document.getElementById('inquiry-form').addEventListener('submit', function(even
     // Send email via EmailJS
     emailjs.sendForm('hannahansenphotography', 'template_k7a4rl5', this)
         .then(function() {
-            displayMessage("Your inquiry has been sent successfully!", "success");
-            document.getElementById('inquiry-form').reset(); // Reset the form
+            displayMessage("Your contact has been sent successfully!", "success");
+            document.getElementById('contact-form').reset(); // Reset the form
         }, function(error) {
-            displayMessage('Failed to send inquiry: ' + JSON.stringify(error), "error");
+            displayMessage('Failed to send contact: ' + JSON.stringify(error), "error");
         });
 });
 
 // Display message function (for success and error messages)
 function displayMessage(message, type) {
-    const formMessage = document.getElementById('inquiry-message');
+    const formMessage = document.getElementById('contact-message');
     formMessage.style.display = 'block'; // Show the message
 
     // Change the color based on message type

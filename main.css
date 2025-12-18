@@ -268,13 +268,13 @@ img {
 }
 
 /* Sections */
-/* About Me */
+/* About */
 section {
     padding: 60px 20px;
     text-align: center;
 }
 
-.about-me h2 {
+.about h2 {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
@@ -282,7 +282,7 @@ section {
     width: 100%;
 }
 
-.about-me {
+.about {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -290,27 +290,27 @@ section {
     padding: 0px 0;
 }
 
-.about-me p {
+.about p {
     margin-bottom: 20px;
 }
 
-.about-me-content {
+.about-content {
     max-width: 40%;
     margin-right: 5%;
     margin-left: 5%;
 }
 
-.about-me img {
+.about img {
     max-width: 50%;
     height: auto;
 }
 
 @media (max-width: 768px) {
-    .about-me {
+    .about {
         flex-direction: column;
     }
     
-    .about-me h2 {
+    .about h2 {
         margin-top: 20px;
     }
 
@@ -318,16 +318,16 @@ section {
         margin-bottom: 20px;
     }
 
-    .about-me-content,
-    .about-me img {
+    .about-content,
+    .about img {
         flex: none;
         max-width: 100%;
         padding: 10;
     }
 }
 
-/* Gallery */
-.gallery-preview {
+/* faq */
+.faq-preview {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -335,49 +335,49 @@ section {
     padding: 50px 10%;
 }
 
-.gallery-preview img {
+.faq-preview img {
     width: 45%;
     max-width: 600px;
     height: auto;
     order: 1;
 }
 
-.gallery-preview-content {
+.faq-preview-content {
     width: 40%;
     text-align: center;
     order: 2;
 }
 
-.gallery-preview h2 {
+.faq-preview h2 {
     font-size: 2em;
     font-weight: bold;
     margin: 0 0 20px;
 }
 
-.gallery-preview p {
+.faq-preview p {
     margin: 0 0 20px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .gallery-preview {
+    .faq-preview {
         flex-direction: column;
         text-align: center;
     }
 
-    .gallery-preview img,
-    .gallery-preview-content {
+    .faq-preview img,
+    .faq-preview-content {
         width: 80%;
         order: 0;
     }
 
-    .gallery-preview-content {
+    .faq-preview-content {
         margin-top: 20px;
     }
 }
 
-/* services and prices */
-.services-prices {
+/* shop and prices */
+.shop-prices {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -387,38 +387,38 @@ section {
 }
 
 /* This targets the image within that container */
-.services-prices img {
+.shop-prices img {
     width: 45%;
     max-width: 600px;
     height: auto;
 }
 
-/* This targets the content within the .services-prices container */
-.services-prices-content {
+/* This targets the content within the .shop-prices container */
+.shop-prices-content {
     width: 40%;
     margin-right: 10%;
 }
 
-.services-prices h2 {
+.shop-prices h2 {
     font-size: 2em;
     font-weight: bold;
     margin: 0 0 20px;
 }
 
-.services-prices p {
+.shop-prices p {
     margin: 0 0 20px;
 }
 
 /* Additional responsive behavior if needed */
 @media (max-width: 768px) {
-    .services-prices {
+    .shop-prices {
         flex-direction: column;
         text-align: center;
         margin-left: 10px;
     }
 
-    .services-prices img,
-    .services-prices-content {
+    .shop-prices img,
+    .shop-prices-content {
         width: 80%;
         order: 0;
     }
@@ -463,14 +463,14 @@ section {
     }
 }
 
-/* Inquiry Section */
-.inquiry-section {
+/* contact Section */
+.contact-section {
     background-color: #77867e46;
     padding: 50px 0;
     text-align: center;
 }
 
-.inquiry-container {
+.contact-container {
     background-color: #ffffff;
     padding: 40px;
     max-width: 400px;
@@ -479,14 +479,14 @@ section {
     border-radius: 10px;
 }
 
-.inquiry-section h2 {
+.contact-section h2 {
     color: #77867ebf;
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-.inquiry-section p {
+.contact-section p {
     color: #555;
     margin-bottom: 30px;
 }
@@ -504,7 +504,7 @@ form input:focus {
     outline: none;
 }
 
-.inquiry-btn {
+.contact-btn {
     background-color: #77867ebf;
     color: white;
     padding: 10px 20px;
@@ -516,19 +516,19 @@ form input:focus {
     transition: background-color 0.3s ease;
 }
 
-.inquiry-btn:hover {
+.contact-btn:hover {
     background-color: rgba(60, 93, 77, 0.715);
 }
 
 /* Success/Error Message */
-#inquiry-message {
+#contact-message {
     margin-top: 20px;
     font-size: 1.1rem;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .inquiry-container {
+    .contact-container {
         width: 90%;
         padding: 20px;
     }
@@ -579,5 +579,5 @@ form input:focus {
 }
 
 /* repeating code */
-.top-header, .video-overlay, .review-banner, .about-me h2, .gallery-preview h2, .services-prices h2 { font-family: 'Cinzel', Georgia, serif; }
+.top-header, .video-overlay, .review-banner, .about h2, .faq-preview h2, .shop-prices h2 { font-family: 'Cinzel', Georgia, serif; }
 
