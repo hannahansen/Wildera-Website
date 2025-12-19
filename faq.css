@@ -174,7 +174,7 @@ nav {
 
 /* FAQ Content */
 .faq {
-    background: #fff;
+    background: #77867e46;
     padding: 60px 20px;
     text-align: left;
 }
@@ -225,14 +225,14 @@ nav {
     font-weight: bold;
     border-radius: 25px;
     border: 2px solid #989898;
-    color: #38413d3d;
+    color: #1c1e1d00;
     background-color: transparent;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .buttoninsta:hover,
 .buttoninsta:focus {
-    color: #000000;
+    color: #1c1e1d00;
     background-color: #afcfc07d;
     text-decoration: none;
     outline: none;
