@@ -224,16 +224,16 @@ nav {
     text-decoration: none;
     font-weight: bold;
     border-radius: 25px;
-    border: 2px solid #989898;
-    color: #1c1e1d00;
-    background-color: transparent;
+    border: 2px solid #989898;     /* border color */
+    color: #989898;                 /* text color */
+    background-color: transparent;  /* background color */
     transition: background-color 0.3s, color 0.3s;
 }
 
 .buttoninsta:hover,
 .buttoninsta:focus {
-    color: #1c1e1d00;
-    background-color: #afcfc07d;
+    color: #989898;                 /* keep text same */
+    background-color: #5768607d;    /* hover shading */
     text-decoration: none;
     outline: none;
 }
