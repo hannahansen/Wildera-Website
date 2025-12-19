@@ -154,7 +154,7 @@ img { max-width: 100%; height: auto; }
   transition: background-color 0.3s, color 0.3s;
 }
 
-.butto.button1:hover, .button1:focus, .button4:hover, .button4:focus {
+.button1:hover, .button1:focus, .button4:hover, .button4:focus {
   color: #ffffff;                 /* keep text same */
   background-color: #5768607d;    /* hover shading */
   text-decoration: none;
