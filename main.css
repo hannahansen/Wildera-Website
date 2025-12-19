@@ -128,7 +128,7 @@ img { max-width: 100%; height: auto; }
   font-weight: bold;
   border-radius: 25px;
   border: 2px solid #989898;
-  color: #38413d3d;
+  color: #1c1e1d00;
   background-color: transparent;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -136,7 +136,7 @@ img { max-width: 100%; height: auto; }
 .button1:hover, .button2:hover, .button3:hover,
 .button1:focus, .button2:focus, .button3:focus {
   color: #000000;
-  background-color: #afcfc07d;
+  background-color: #5768607d;
   text-decoration: none;
   outline: none;
 }
@@ -149,14 +149,14 @@ img { max-width: 100%; height: auto; }
   font-weight: bold;
   border-radius: 25px;
   border: 2px solid #989898;
-  color: #38413d3d;
+  color: #1c1e1d00;
   background-color: transparent;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .button4:hover, .button4:focus {
   color: #000000;
-  background-color: #afcfc07d;
+  background-color: #5768607d;
   text-decoration: none;
   outline: none;
 }
