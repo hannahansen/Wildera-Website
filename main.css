@@ -135,7 +135,7 @@ img { max-width: 100%; height: auto; }
 
 .button1:hover, .button2:hover, .button3:hover,
 .button1:focus, .button2:focus, .button3:focus {
-  color: #000000;
+  color: #1c1e1d00;
   background-color: #5768607d;
   text-decoration: none;
   outline: none;
@@ -155,7 +155,7 @@ img { max-width: 100%; height: auto; }
 }
 
 .button4:hover, .button4:focus {
-  color: #000000;
+  color: #1c1e1d00;
   background-color: #5768607d;
   text-decoration: none;
   outline: none;
