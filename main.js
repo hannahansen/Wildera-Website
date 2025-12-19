@@ -8,7 +8,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     // Only intercept if the target exists on the current page
     if (target) {
-      e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
     }
   });

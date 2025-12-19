@@ -112,6 +112,8 @@ img {
 
 /* Navigation Bar */
 nav {
+    border-radius: 14px;
+    overflow: hidden;
     background: #ffffff5e;
     padding: 10px 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -124,6 +126,11 @@ nav {
         padding: 20px 10px;
         font-size: 5px;
     }
+
+    nav { 
+        width: calc(100% - 20px);
+    }
+
     
     nav ul {
         flex-direction: column;

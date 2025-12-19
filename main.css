@@ -70,7 +70,14 @@ body {
   border-radius: 999px;
 }
 
-nav { background: #ffffff5e; padding: 11px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+nav {
+  background: #ffffff5e;
+  padding: 11px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  border-radius: 14px;
+  overflow: hidden;
+}
 nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
 nav ul li { padding: 0 15px; }
 nav ul li a { text-decoration: none; color: #333; font-size: 1rem; }
@@ -282,6 +289,7 @@ form input:focus { border-color: #77867ebf; outline: none; }
 @media (max-width: 768px) {
   .top-header { flex-direction: column; padding: 20px 10px; }
   .page-label { margin-top: 8px; font-size: 0.85rem; }
+  nav { width: calc(100% - 20px); }
   nav ul { flex-direction: column; padding: 0; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
