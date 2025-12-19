@@ -46,7 +46,7 @@ body {
 }
 
 .header-title {
-  margin: 0 auto;
+  margin: 0;
   font-size: 3rem;
   font-family: 'cherolina', cursive;
 }
@@ -285,7 +285,7 @@ form input:focus { border-color: #77867ebf; outline: none; }
   nav ul { flex-direction: column; padding: 0; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
-  .header-title { font-size: 1.25rem; }
+  .header-title { margin: 0 auto; font-size: 1.25rem; }
 
   .about { flex-direction: column; }
   .about-content, .about img { max-width: 100%; }
