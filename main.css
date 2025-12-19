@@ -127,16 +127,16 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
-  border: 2px solid #ffffff;
-  color: #ffffff;
+  border: 2px solid #989898;
+  color: #38413d3d;
   background-color: transparent;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .button1:hover, .button2:hover, .button3:hover,
 .button1:focus, .button2:focus, .button3:focus {
-  color: #ffffff;
-  background-color: #77867ebc;
+  color: #000000;
+  background-color: #afcfc07d;
   text-decoration: none;
   outline: none;
 }
@@ -148,8 +148,8 @@ img { max-width: 100%; height: auto; }
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
-  border: 2px solid #ffffffcc;
-  color: #ffffffc9;
+  border: 2px solid #989898;
+  color: #38413d3d;
   background-color: transparent;
   transition: background-color 0.3s, color 0.3s;
 }
