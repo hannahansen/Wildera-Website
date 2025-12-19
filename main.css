@@ -120,7 +120,7 @@ img { max-width: 100%; height: auto; }
 }
 
 /* Buttons */
-.button1, .button2, .button3 {
+.button2, .button3 {
   display: inline-block;
   padding: 10px 20px;
   text-align: center;
@@ -133,29 +133,29 @@ img { max-width: 100%; height: auto; }
   transition: background-color 0.3s, color 0.3s;
 }
 
-.button1:hover, .button2:hover, .button3:hover,
-.button1:focus, .button2:focus, .button3:focus {
+.button2:hover, .button3:hover,
+.button2:focus, .button3:focus {
   color: #000000;                 /* keep text same */
   background-color: #5768607d;    /* hover shading */
   text-decoration: none;
   outline: none;
 }
 
-.button4 {
+.button1, .button4 {
   display: inline-block;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
-  border: 2px solid #5959599d;     /* border color */
-  color: #000000;                 /* text color */
+  border: 2px solid #ffffffdc;     /* border color */
+  color: #ffffff;                 /* text color */
   background-color: transparent;  /* background color */
   transition: background-color 0.3s, color 0.3s;
 }
 
-.button4:hover, .button4:focus {
-  color: #000000;                 /* keep text same */
+.butto.button1:hover, .button1:focus, .button4:hover, .button4:focus {
+  color: #ffffff;                 /* keep text same */
   background-color: #5768607d;    /* hover shading */
   text-decoration: none;
   outline: none;
