@@ -62,12 +62,14 @@
     font-family: 'cherolina', cursive;
 }
 
-.top-header .header-title .logo-wild {
-    color: #77867ebc;
+.header-title .logo-wild {
+  color: rgba(36, 41, 38, 0.559);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
-.top-header .header-title .logo-era {
-    color: #ffffff;
+.header-title .logo-era {
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
 }
 
 .top-header .page-label {
