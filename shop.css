@@ -204,7 +204,7 @@ nav {
     align-items: center;
     text-decoration: none;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.234);
 }
 
 .shop-item:hover {
@@ -213,6 +213,7 @@ nav {
 }
 
 .shop-item h2 {
+    color: #ffffff;
     position: absolute;
     bottom: 0;
     width: 100%;
