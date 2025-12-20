@@ -231,6 +231,100 @@ body {
     outline: none;
 }
 
+.product-list{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.product-card{
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text left, photo right */
+  gap: 26px;
+  align-items: center;
+}
+
+.product-info{
+  text-align: left;
+  padding-left: 8px; /* “space on the left of the photo” feel */
+}
+
+.product-title{
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.product-subtitle{
+  color: #53605be1;
+  margin-bottom: 14px;
+}
+
+.product-details p{
+  margin: 6px 0;
+  color: #555;
+}
+
+.product-description{
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+/* Carousel */
+.carousel{
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f3f3;
+}
+
+.carousel-slide{
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: none; /* JS shows only active one */
+}
+
+/* Arrows */
+.carousel-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.55); /* slightly transparent */
+  color: #1c1e1d;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-btn:hover{
+  background: rgba(255,255,255,0.75);
+}
+
+.carousel-btn.prev{ left: 12px; }
+.carousel-btn.next{ right: 12px; }
+
+/* Mobile */
+@media (max-width: 768px){
+  .product-card{ grid-template-columns: 1fr; }
+  .carousel-slide{ height: 260px; }
+}
+
 /* Connect */
 .connect-content {
     /* background: #ffffff; */
