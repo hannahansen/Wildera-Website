@@ -196,7 +196,7 @@ nav {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 560px;              /* taller cards */
+    height: 500px;              /* taller cards */
     border-radius: 18px;       /* softer edges */
     display: flex;
     justify-content: center;
