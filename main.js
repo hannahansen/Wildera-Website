@@ -37,7 +37,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     return;
   }
 
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
   function formatPhoneNumber(value) {
     value = value.replace(/\D/g, '');
