@@ -196,7 +196,7 @@ nav {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 460px;              /* taller cards */
+    height: 560px;              /* taller cards */
     border-radius: 18px;       /* softer edges */
     display: flex;
     justify-content: center;
@@ -238,7 +238,7 @@ nav {
     }
 
     .shop-item {
-        height: 260px;
+        height: 400px;
     }
 }
 
