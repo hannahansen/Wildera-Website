@@ -239,6 +239,10 @@ nav {
 }
 
 /* Connect */
+.connect {
+  padding: 0;
+}
+
 .connect-content {
     background: #ffffff;
     color: #53605be1;

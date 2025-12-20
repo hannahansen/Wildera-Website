@@ -270,6 +270,10 @@ form input:focus { border-color: #77867ebf; outline: none; }
 #contact-message { margin-top: 20px; font-size: 1.1rem; }
 
 /* Connect */
+.connect {
+  padding: 0;
+}
+
 .connect-content {
     background: #ffffff;
     color: #53605be1;
