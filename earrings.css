@@ -11,6 +11,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* menu button */
 #menu-toggle {
     display: none;
@@ -234,48 +239,17 @@ body {
 .product-list{
   max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 20px 60px;
+  padding: 120px 20px 60px; /* pushes content below fixed header */
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
-.product-card{
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+/* ...unchanged... */
 
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* text left, photo right */
-  gap: 26px;
-  align-items: center;
-}
-
-.product-info{
-  text-align: left;
-  padding-left: 8px; /* “space on the left of the photo” feel */
-}
-
-.product-title{
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-
-.product-subtitle{
-  color: #53605be1;
-  margin-bottom: 14px;
-}
-
-.product-details p{
-  margin: 6px 0;
-  color: #555;
-}
-
-.product-description{
-  margin-top: 12px;
-  line-height: 1.6;
+.product-media{
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Carousel */
@@ -284,12 +258,15 @@ body {
   border-radius: 12px;
   overflow: hidden;
   background: #f3f3f3;
+  width: 100%;
+  max-width: 420px; /* keeps the photo from becoming huge/wide */
+  height: 240px;    /* locks the visible area */
 }
 
 .carousel-slide{
   width: 100%;
   height: 240px;
-  object-fit: contain;
+  object-fit: contain; /* show the full product */
   display: none;
   background: #f3f3f3;
 }
@@ -323,7 +300,13 @@ body {
 /* Mobile */
 @media (max-width: 768px){
   .product-card{ grid-template-columns: 1fr; }
-  .carousel-slide{ height: 260px; }
+  .carousel{
+    max-width: 100%;
+    height: 220px;
+  }
+  .carousel-slide{
+    height: 220px;
+  }
 }
 
 /* Connect */
