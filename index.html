@@ -12,6 +12,7 @@
     // Replace these values with the ones from your EmailJS dashboard
     window.EMAILJS_PUBLIC_KEY = '5jLAB2Vqjod8IMFkM';
     window.EMAILJS_SERVICE_ID = 'jewelry.wildera';
+    window.WILDERA_INBOX_EMAIL = 'jewelry.wildera@gmail.com';
 
     // Two templates: one that emails YOU, and one that auto-replies to the customer
     window.EMAILJS_TEMPLATE_CONTACT = 'template_n7o251l';
@@ -95,6 +96,7 @@
     <p>Questions & inquiries? Message me here.</p>
 
     <form id="contact-form">
+      <input type="hidden" name="to_email" value="jewelry.wildera@gmail.com">
       <input type="text" name="first_name" placeholder="First Name" required>
       <input type="text" name="last_name" placeholder="Last Name" required>
       <input type="email" name="email" placeholder="Email Address" required>

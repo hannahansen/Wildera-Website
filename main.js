@@ -25,6 +25,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   const EMAILJS_TEMPLATE_AUTOREPLY = window.EMAILJS_TEMPLATE_AUTOREPLY;
   const WILDERA_WEBSITE_LINK = window.WILDERA_WEBSITE_LINK;
   const WILDERA_LOGO_URL = window.WILDERA_LOGO_URL;
+  const WILDERA_INBOX_EMAIL = window.WILDERA_INBOX_EMAIL || 'jewelry.wildera@gmail.com';
 
   if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_CONTACT || !EMAILJS_TEMPLATE_AUTOREPLY || (EMAILJS_PUBLIC_KEY + EMAILJS_SERVICE_ID + EMAILJS_TEMPLATE_CONTACT + EMAILJS_TEMPLATE_AUTOREPLY).includes('REPLACE_WITH')) {
     console.error('EmailJS is not configured. Set EMAILJS_PUBLIC_KEY / SERVICE_ID / TEMPLATE_CONTACT / TEMPLATE_AUTOREPLY in index.html.');
@@ -82,6 +83,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         return;
       }
       phoneInput.value = formattedPhone;
+    }
+
+    // Ensure the Contact template has a recipient if it uses {{to_email}}
+    const toEmailField = contactForm.querySelector('input[name="to_email"]');
+    if (toEmailField) {
+      toEmailField.value = WILDERA_INBOX_EMAIL;
     }
 
     // 1) Email YOU the inquiry (Contact Us template)
