@@ -193,6 +193,7 @@ nav {
 }
 
 .shop-item {
+    color: #ffffff;
     position: relative;
     overflow: hidden;
     background-size: cover;
