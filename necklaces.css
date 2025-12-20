@@ -1,7 +1,3 @@
-html, body {
-  width: 100%;
-  overflow-x: hidden;
-}
 @font-face {
     font-family: 'cherolina';
     src: url('fonts/cherolina/Cherolina.otf') format('opentype');
@@ -13,6 +9,11 @@ html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* menu button */
@@ -47,6 +48,7 @@ html, body {
     visibility: visible;
 }
 
+/* overall header */
 /* overall header */
 .top-header {
     display: flex;
@@ -162,7 +164,7 @@ body {
     margin-top: 40px;
 }
 
-.bridal-offer {
+.engagement-offer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -175,7 +177,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.bridal-offer img {
+.engagement-offer img {
     width: 50%;
     height: auto;
     object-fit: cover;
@@ -242,47 +244,12 @@ body {
   flex-direction: column;
   gap: 22px;
 }
+
+/* ...unchanged... */
+
 .product-media{
   display: flex;
   justify-content: flex-end;
-}
-
-.product-card{
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* text left, photo right */
-  gap: 26px;
-  align-items: center;
-}
-
-.product-info{
-  text-align: left;
-  padding-left: 8px; /* “space on the left of the photo” feel */
-}
-
-.product-title{
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-
-.product-subtitle{
-  color: #53605be1;
-  margin-bottom: 14px;
-}
-
-.product-details p{
-  margin: 6px 0;
-  color: #555;
-}
-
-.product-description{
-  margin-top: 12px;
-  line-height: 1.6;
 }
 
 /* Carousel */
@@ -348,7 +315,7 @@ body {
     color: #53605be1;
     padding: 50px 0;
     text-align: center;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 .connect-content h2 {
@@ -403,11 +370,11 @@ body {
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-    .bridal-offer {
+    .engagement-offer {
         flex-direction: column;
     }
 
-    .bridal-offer img, .price-details {
+    .engagement-offer img, .price-details {
         width: 100%;
     }
 
