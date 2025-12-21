@@ -121,7 +121,7 @@ function render() {
       const cartNow = loadCart();
 
       // Require Stripe price IDs on cart items
-      const missing = cartNow.find(i => !i || !i.stripePriceId);
+      const missing = cartNow.find(i => !i || !(i.stripePriceId || i.stripe_price_id || i.priceId));
       if (missing) {
         alert(
           'One or more cart items are missing a Stripe price ID.\n\n' +
@@ -131,8 +131,8 @@ function render() {
       }
 
       const items = cartNow.map(i => ({
-        priceId: String(i.stripePriceId),
-        quantity: Math.max(1, Math.min(99, Number(i.qty || 1)))
+          priceId: String(i.stripePriceId || i.stripe_price_id || i.priceId),
+          quantity: Math.max(1, Math.min(99, Number(i.qty || 1)))
       }));
 
       checkoutBtn.disabled = true;
