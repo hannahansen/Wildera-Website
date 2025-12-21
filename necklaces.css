@@ -125,6 +125,47 @@ nav ul li a:hover { color: #000; }
   margin-top: 10px;
 }
 
+.product-actions{
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.add-to-cart{
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 2px solid #5959599d;
+  background: transparent;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-to-cart:hover,
+.add-to-cart:focus{
+  background-color: #5768607d;
+  outline: none;
+}
+
+.add-to-cart:disabled{
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.cart-status{
+  font-size: 0.95rem;
+  color: #55615c;
+  min-height: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .product-actions{ align-items: center; }
+}
+
 .product-media{
   display: flex;
   justify-content: center;

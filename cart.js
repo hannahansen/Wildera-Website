@@ -76,7 +76,11 @@ function render() {
 
       if (!cartNow[i]) return;
 
-      if (action === 'inc') cartNow[i].qty = (cartNow[i].qty || 1) + 1;
+      if (action === 'inc') {
+        const maxStock = Number(cartNow[i].stock || Infinity);
+        const nextQty = (cartNow[i].qty || 1) + 1;
+        cartNow[i].qty = Math.min(nextQty, maxStock);
+      }
       if (action === 'dec') cartNow[i].qty = Math.max(1, (cartNow[i].qty || 1) - 1);
       if (action === 'remove') cartNow.splice(i, 1);
 
