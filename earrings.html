@@ -117,6 +117,7 @@
 
 <script>
   (function () {
+    // --- Carousel ---
     document.querySelectorAll('.carousel').forEach((carousel) => {
       const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
       const prev = carousel.querySelector('.carousel-btn.prev');
@@ -124,9 +125,8 @@
       if (!slides.length || !prev || !next) return;
 
       let index = 0;
-
       function render() {
-        slides.forEach((img, i) => img.style.display = (i === index ? 'block' : 'none'));
+        slides.forEach((img, i) => (img.style.display = i === index ? 'block' : 'none'));
       }
 
       prev.addEventListener('click', () => {
@@ -141,6 +141,96 @@
 
       render();
     });
+
+    // --- Cart (localStorage) ---
+    const CART_KEY = 'wildera_cart_v1';
+
+    function loadCart() {
+      try {
+        return JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+      } catch {
+        return [];
+      }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function getInCartQty(cart, id) {
+      const found = cart.find((i) => i.id === id);
+      return found ? Number(found.qty || 0) : 0;
+    }
+
+    function setStatus(card, text) {
+      const el = card.querySelector('.cart-status');
+      if (el) el.textContent = text;
+    }
+
+    function refreshButtons() {
+      const cart = loadCart();
+
+      document.querySelectorAll('.product-card[data-product-id]').forEach((card) => {
+        const id = card.getAttribute('data-product-id');
+        const stock = Number(card.getAttribute('data-product-stock') || 0);
+        const inCart = getInCartQty(cart, id);
+        const btn = card.querySelector('.add-to-cart');
+        if (!btn) return;
+
+        if (stock <= 0) {
+          btn.disabled = true;
+          btn.textContent = 'Sold out';
+          setStatus(card, '');
+          return;
+        }
+
+        const remaining = Math.max(0, stock - inCart);
+
+        if (remaining <= 0) {
+          btn.disabled = true;
+          btn.textContent = 'In cart (max)';
+          setStatus(card, 'You have the max quantity in your cart.');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Add to cart';
+          setStatus(card, remaining === stock ? '' : `${remaining} left in stock`);
+        }
+      });
+    }
+
+    document.querySelectorAll('.product-card[data-product-id]').forEach((card) => {
+      const btn = card.querySelector('.add-to-cart');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const id = card.getAttribute('data-product-id');
+        const name = card.getAttribute('data-product-name') || 'Item';
+        const price = Number(card.getAttribute('data-product-price') || 0);
+        const stock = Number(card.getAttribute('data-product-stock') || 0);
+        const image = card.getAttribute('data-product-image') || '';
+
+        const cart = loadCart();
+        const currentQty = getInCartQty(cart, id);
+
+        if (currentQty >= stock) {
+          refreshButtons();
+          return;
+        }
+
+        const existing = cart.find((i) => i.id === id);
+        if (existing) {
+          existing.qty = Number(existing.qty || 1) + 1;
+        } else {
+          cart.push({ id, name, price, qty: 1, image, stock });
+        }
+
+        saveCart(cart);
+        refreshButtons();
+      });
+    });
+
+    window.addEventListener('storage', refreshButtons);
+    refreshButtons();
   })();
 </script>
 
