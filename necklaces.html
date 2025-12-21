@@ -38,6 +38,10 @@
     <div class="product-info">
       <h2 class="product-title">Product Name</h2>
       <p class="product-subtitle">Short one-line vibe goes here.</p>
+      <div class="product-meta">
+        <span class="product-price"></span>
+        <span class="product-stock"></span>
+      </div>
 
       <div class="product-details">
         <p><strong>Materials:</strong> 18K gold plated stainless steel</p>
@@ -75,6 +79,10 @@
     <div class="product-info">
       <h2 class="product-title">Another Product</h2>
       <p class="product-subtitle">Another short vibe line.</p>
+      <div class="product-meta">
+        <span class="product-price"></span>
+        <span class="product-stock"></span>
+      </div>
 
       <div class="product-details">
         <p><strong>Materials:</strong> Add materials</p>
@@ -185,6 +193,15 @@
         const btn = card.querySelector('.add-to-cart');
         if (!btn) return;
 
+        const priceEl = card.querySelector('.product-price');
+        const stockEl = card.querySelector('.product-stock');
+        const price = Number(card.getAttribute('data-product-price') || 0);
+        if (priceEl) priceEl.textContent = `$${price.toFixed(2)}`;
+        if (stockEl) {
+          const remainingNow = Math.max(0, stock - inCart);
+          stockEl.textContent = `In stock: ${remainingNow}`;
+        }
+
         if (stock <= 0) {
           btn.disabled = true;
           btn.textContent = 'Sold out';
@@ -197,11 +214,11 @@
         if (remaining <= 0) {
           btn.disabled = true;
           btn.textContent = 'In cart (max)';
-          setStatus(card, 'You have the max quantity in your cart.');
+          setStatus(card, 'Max quantity reached for this item.');
         } else {
           btn.disabled = false;
           btn.textContent = 'Add to cart';
-          setStatus(card, remaining === stock ? '' : `${remaining} left in stock`);
+          setStatus(card, '');
         }
       });
     }

@@ -113,6 +113,24 @@ nav ul li a:hover { color: #000; }
   margin-bottom: 14px;
 }
 
+.product-meta{
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 4px 0 12px;
+  color: #55615c;
+}
+
+.product-price{
+  font-weight: 700;
+  color: #1c1e1d;
+}
+
+.product-stock{
+  font-size: 0.95rem;
+}
+
 .product-details{
   margin: 12px 0 12px;
   color: #555;
