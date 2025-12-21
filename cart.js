@@ -21,6 +21,20 @@ function calcTotal(cart) {
 }
 
 function render() {
+  // Handle Stripe return flags (optional but nice)
+  const params = new URLSearchParams(window.location.search);
+  const success = params.get('success');
+  const canceled = params.get('canceled');
+
+  if (success === '1') {
+    saveCart([]);
+    window.history.replaceState({}, document.title, window.location.pathname);
+    alert('Payment successful! Thank you for your order.');
+  } else if (canceled === '1') {
+    window.history.replaceState({}, document.title, window.location.pathname);
+    alert('Checkout canceled. Your cart is saved.');
+  }
+
   const cart = loadCart();
   const itemsEl = document.getElementById('cart-items');
   const totalEl = document.getElementById('cart-total');
@@ -33,12 +47,18 @@ function render() {
     emptyEl.style.display = 'block';
     itemsEl.innerHTML = '';
     totalEl.textContent = money(0);
-    if (checkoutBtn) checkoutBtn.disabled = true;
+    if (checkoutBtn) {
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Checkout';
+    }
     return;
   }
 
   emptyEl.style.display = 'none';
-  if (checkoutBtn) checkoutBtn.disabled = false;
+  if (checkoutBtn) {
+    checkoutBtn.disabled = false;
+    checkoutBtn.textContent = 'Checkout';
+  }
 
   itemsEl.innerHTML = cart.map((item, idx) => {
     const img = item.image || 'images/A49A7265.jpg';
@@ -90,8 +110,57 @@ function render() {
   });
 
   if (checkoutBtn) {
-    checkoutBtn.onclick = () => {
-      alert('Checkout is not connected yet. Next step is Stripe or Shopify checkout.');
+    checkoutBtn.onclick = async () => {
+      const apiUrl = window.WILDERA_CHECKOUT_API_URL;
+
+      if (!apiUrl || String(apiUrl).includes('YOUR-VERCEL-PROJECT')) {
+        alert('Checkout API is not configured yet. Set WILDERA_CHECKOUT_API_URL in cart.html.');
+        return;
+      }
+
+      const cartNow = loadCart();
+
+      // Require Stripe price IDs on cart items
+      const missing = cartNow.find(i => !i || !i.stripePriceId);
+      if (missing) {
+        alert(
+          'One or more cart items are missing a Stripe price ID.\n\n' +
+          'Fix: make sure each product has data-stripe-price-id, and your add-to-cart code saves it as stripePriceId in localStorage.'
+        );
+        return;
+      }
+
+      const items = cartNow.map(i => ({
+        priceId: String(i.stripePriceId),
+        quantity: Math.max(1, Math.min(99, Number(i.qty || 1)))
+      }));
+
+      checkoutBtn.disabled = true;
+      checkoutBtn.textContent = 'Redirecting to checkout…';
+
+      try {
+        const resp = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items })
+        });
+
+        const data = await resp.json().catch(() => ({}));
+
+        if (!resp.ok) {
+          throw new Error(data?.error || `Checkout failed (${resp.status})`);
+        }
+
+        if (!data?.url) {
+          throw new Error('Checkout failed: missing redirect URL.');
+        }
+
+        window.location.href = data.url;
+      } catch (err) {
+        alert('Checkout error: ' + (err?.message || err));
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = 'Checkout';
+      }
     };
   }
 }
