@@ -244,9 +244,11 @@
 
         const existing = cart.find((i) => i.id === id);
         if (existing) {
-          existing.qty = Number(existing.qty || 1) + 1;
+        existing.qty = Number(existing.qty || 1) + 1;
+
+        if (!existing.stripePriceId) existing.stripePriceId = stripePriceId;
         } else {
-          cart.push({ id, name, price, qty: 1, stock, image, stripePriceId });
+        cart.push({ id, name, price, qty: 1, stock, image, stripePriceId });
         }
 
         saveCart(cart);
