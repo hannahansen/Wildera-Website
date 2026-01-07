@@ -232,6 +232,7 @@
         const price = Number(card.getAttribute('data-product-price') || 0);
         const stock = Number(card.getAttribute('data-product-stock') || 0);
         const image = card.getAttribute('data-product-image') || '';
+        const stripePriceId = card.getAttribute('data-stripe-price-id');
 
         const cart = loadCart();
         const currentQty = getInCartQty(cart, id);
@@ -245,7 +246,7 @@
         if (existing) {
           existing.qty = Number(existing.qty || 1) + 1;
         } else {
-          cart.push({ id, name, price, qty: 1, image, stock });
+          cart.push({ id, name, price, qty: 1, stock, image, stripePriceId });
         }
 
         saveCart(cart);
