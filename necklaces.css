@@ -111,6 +111,9 @@ nav ul li a:hover { color: #000; }
 .product-subtitle{
   color: #55615c;
   margin-bottom: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
 }
 
 .product-meta{
@@ -154,9 +157,10 @@ nav ul li a:hover { color: #000; }
 
 /* Labels like materials, size, notes */
 .product-details strong {
+  font-family: 'Cinzel', serif;
   font-weight: 600;
-  text-transform: lowercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0.08em;
 }
 
 .product-actions{
