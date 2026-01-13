@@ -156,7 +156,7 @@ nav ul li a:hover { color: #000; }
 /* Labels like materials, size, notes */
 .product-details strong {
   font-family: 'Cinzel', serif;
-  font-weight: 400;
+  font-weight: 200;
   text-transform: none;
   letter-spacing: 0.06em;
 }
