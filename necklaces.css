@@ -143,6 +143,19 @@ nav ul li a:hover { color: #000; }
   margin-top: 10px;
 }
 
+/* Force normal lowercase, readable text for product details */
+.product-details,
+.product-description {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.product-details strong {
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
 .product-actions{
   margin-top: 16px;
   display: flex;
