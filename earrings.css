@@ -171,6 +171,100 @@ nav ul li a:hover { color: #000; }
   align-items: flex-start;
 }
 
+/* Collection grid (top browse section) */
+.collection{
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 22px;
+}
+
+.collection-title{
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.collection-subtitle{
+  color: #55615c;
+  margin-bottom: 16px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 100;
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+}
+
+.collection-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.collection-item{
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #ededed;
+  border-radius: 12px;
+  text-decoration: none;
+  background: #fbfbfb;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.collection-item:hover,
+.collection-item:focus{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  outline: none;
+}
+
+.collection-item img{
+  width: 84px;
+  height: 84px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: #f3f3f3;
+}
+
+.collection-text{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.collection-name{
+  color: #1c1e1d;
+  letter-spacing: 0.04em;
+  font-family: 'Cinzel', serif;
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.collection-price{
+  color: #55615c;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 100;
+  text-transform: none;
+}
+
+.collection-divider{
+  border: none;
+  border-top: 1px solid #ededed;
+  margin: 22px 0;
+}
+
+/* Make anchor jumps land nicely below the fixed header */
+.product-card[id]{
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 768px){
+  .collection-grid{ grid-template-columns: 1fr; }
+}
+
 .add-to-cart{
   display: inline-block;
   padding: 12px 18px;

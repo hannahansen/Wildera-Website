@@ -34,6 +34,15 @@
 
 <main class="product-list">
 
+  <!-- COLLECTION GRID (auto-built from products below) -->
+  <section class="collection" aria-label="Necklaces collection">
+    <h2 class="collection-title">Necklaces</h2>
+    <p class="collection-subtitle">browse the collection, then tap for details.</p>
+    <div class="collection-grid" id="collection-grid"></div>
+  </section>
+
+  <hr class="collection-divider" aria-hidden="true" />
+
   <!-- PRODUCT 1 -->
   <!-- <section class="product-card" data-product-id="necklaces-1" data-product-name="Product Name" data-product-price="42" data-product-stock="4" data-stripe-price-id="price_1SggSn3wZkikQ95UyR4psAHL" data-product-image="images/A49A7265.jpg">
     <div class="product-info">
@@ -130,6 +139,50 @@
     <p>© 2025 Wildera. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  // Build the top collection grid from the product cards on the page
+  (function () {
+    const grid = document.getElementById('collection-grid');
+    if (!grid) return;
+
+    const cards = Array.from(document.querySelectorAll('.product-card[data-product-id]'));
+
+    cards.forEach((card) => {
+      const id = card.getAttribute('data-product-id');
+      if (!id) return;
+
+      // Ensure the card has an anchor target
+      if (!card.id) card.id = id;
+
+      const name =
+        (card.getAttribute('data-product-name') ||
+          card.querySelector('.product-title')?.textContent ||
+          'product').trim();
+
+      const price = Number(card.getAttribute('data-product-price') || 0);
+
+      const imgSrc =
+        card.getAttribute('data-product-image') ||
+        card.querySelector('.carousel-slide')?.getAttribute('src') ||
+        '';
+
+      const a = document.createElement('a');
+      a.className = 'collection-item';
+      a.href = `#${card.id}`;
+
+      a.innerHTML = `
+        <img src="${imgSrc}" alt="${name}">
+        <div class="collection-text">
+          <div class="collection-name">${name.toLowerCase()}</div>
+          <div class="collection-price">$${price.toFixed(2)}</div>
+        </div>
+      `;
+
+      grid.appendChild(a);
+    });
+  })();
+</script>
 
 <script>
   (function () {

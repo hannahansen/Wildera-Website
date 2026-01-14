@@ -34,82 +34,18 @@
 
 <main class="product-list">
 
+  <!-- COLLECTION GRID (auto-built from products below) -->
+  <section class="collection" aria-label="Rings collection">
+    <h2 class="collection-title">Rings</h2>
+    <p class="collection-subtitle">browse the collection, then tap for details.</p>
+    <div class="collection-grid" id="collection-grid"></div>
+  </section>
+
+  <hr class="collection-divider" aria-hidden="true" />
+
   <!-- PRODUCT 1 -->
-  <!-- <section class="product-card" data-product-id="rings-1" data-product-name="Product Name" data-product-price="55" data-product-stock="2" data-stripe-price-id="price_1SggSn3wZkikQ95UyR4psAHL" data-product-image="images/A49A7265.jpg">
-    <div class="product-info">
-      <h2 class="product-title">Product Name</h2>
-      <p class="product-subtitle">Short one-line vibe goes here.</p>
-      <div class="product-meta">
-        <span class="product-price"></span>
-        <span class="product-stock"></span>
-      </div>
-
-      <div class="product-details">
-        <p><strong>Materials:</strong> 18K gold plated stainless steel</p>
-        <p><strong>Size:</strong> 12mm huggie</p>
-        <p><strong>Notes:</strong> Tarnish-resistant, everyday wear</p>
-      </div>
-
-      <p class="product-description">
-        Product description goes here!
-      </p>
-      <div class="product-actions">
-        <button type="button" class="add-to-cart">Add to cart</button>
-        <p class="cart-status" aria-live="polite"></p>
-      </div>
-    </div>
-
-    <div class="product-media">
-      <div class="carousel">
-        <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
-
-        <div class="carousel-track">
-          <img class="carousel-slide" src="images/A49A7265.jpg" alt="Photo 1">
-          <img class="carousel-slide" src="images/A49A7274.jpg" alt="Photo 2">
-          <img class="carousel-slide" src="images/A49A7271.jpg" alt="Photo 3">
-        </div>
-
-        <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
-      </div>
-    </div>
-  </section> -->
 
   <!-- PRODUCT 2 -->
-  <!-- <section class="product-card" data-product-id="rings-2" data-product-name="Another Product" data-product-price="48" data-product-stock="5" data-stripe-price-id="price_1SggSn3wZkikQ95UyR4psAHL" data-product-image="images/A49A7240.jpg">
-    <div class="product-info">
-      <h2 class="product-title">Another Product</h2>
-      <p class="product-subtitle">Another short vibe line.</p>
-      <div class="product-meta">
-        <span class="product-price"></span>
-        <span class="product-stock"></span>
-      </div>
-
-      <div class="product-details">
-        <p><strong>Materials:</strong> Add materials</p>
-        <p><strong>Size:</strong> Add size</p>
-        <p><strong>Notes:</strong> Add notes</p>
-      </div>
-
-      <p class="product-description">Product description goes here.</p>
-      <div class="product-actions">
-        <button type="button" class="add-to-cart">Add to cart</button>
-        <p class="cart-status" aria-live="polite"></p>
-      </div>
-    </div>
-
-    <div class="product-media">
-      <div class="carousel">
-        <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
-
-        <div class="carousel-track">
-          <img class="carousel-slide" src="images/A49A7240.jpg" alt="Photo 1">
-          <img class="carousel-slide" src="images/A49A7265.jpg" alt="Photo 2">
-        </div>
-
-        <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
-      </div>
-    </div>
-  </section> -->
 
 </main>
 
@@ -130,6 +66,50 @@
     <p>© 2025 Wildera. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  // Build the top collection grid from the product cards on the page
+  (function () {
+    const grid = document.getElementById('collection-grid');
+    if (!grid) return;
+
+    const cards = Array.from(document.querySelectorAll('.product-card[data-product-id]'));
+
+    cards.forEach((card) => {
+      const id = card.getAttribute('data-product-id');
+      if (!id) return;
+
+      // Ensure the card has an anchor target
+      if (!card.id) card.id = id;
+
+      const name =
+        (card.getAttribute('data-product-name') ||
+          card.querySelector('.product-title')?.textContent ||
+          'product').trim();
+
+      const price = Number(card.getAttribute('data-product-price') || 0);
+
+      const imgSrc =
+        card.getAttribute('data-product-image') ||
+        card.querySelector('.carousel-slide')?.getAttribute('src') ||
+        '';
+
+      const a = document.createElement('a');
+      a.className = 'collection-item';
+      a.href = `#${card.id}`;
+
+      a.innerHTML = `
+        <img src="${imgSrc}" alt="${name}">
+        <div class="collection-text">
+          <div class="collection-name">${name.toLowerCase()}</div>
+          <div class="collection-price">$${price.toFixed(2)}</div>
+        </div>
+      `;
+
+      grid.appendChild(a);
+    });
+  })();
+</script>
 
 <script>
   (function () {
