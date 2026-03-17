@@ -181,8 +181,8 @@ section { padding: 60px 20px; text-align: center; }
 }
 
 .about-content { max-width: 40%; margin: 0 5%; }
-.about h2 { font-size: 2em; font-weight: bold; margin: 20px 0; }
-.about p { margin-bottom: 20px; }
+.about h2 { font-size: 2em; font-weight: bold; margin: 20px 0; text-transform: uppercase; }
+.about p { margin-bottom: 20px; text-transform: lowercase; }
 .about img { max-width: 50%; height: auto; }
 
 .faq-preview {
