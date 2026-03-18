@@ -52,14 +52,19 @@ body {
 }
 
 .header-logo-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   line-height: 0;
+  max-width: 220px;
+  overflow: hidden;
 }
 
 .header-logo {
   display: block;
-  height: 78px;
-  width: auto;
+  height: 40px !important;
+  max-height: 40px !important;
+  width: auto !important;
+  max-width: 220px;
   object-fit: contain;
 }
 
@@ -404,7 +409,12 @@ nav ul li a:hover { color: #000; }
 
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
   .header-title { margin: 0 auto; }
-  .header-logo { height: 44px; }
+  .header-logo {
+    height: 30px !important;
+    max-height: 30px !important;
+    width: auto !important;
+    max-width: 170px;
+  }
 
   .product-card{
     grid-template-columns: 1fr;

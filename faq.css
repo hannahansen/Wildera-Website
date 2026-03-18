@@ -58,18 +58,24 @@
 
 .top-header .header-title {
     margin: 0;
-    font-size: 3rem;
-    font-family: 'cherolina', cursive;
+    line-height: 0;
 }
 
-.header-title .logo-wild {
-  color: rgba(36, 41, 38, 0.559);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  max-width: 220px;
+  overflow: hidden;
 }
 
-.header-title .logo-era {
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+.header-logo {
+  display: block;
+  height: 40px !important;
+  max-height: 40px !important;
+  width: auto !important;
+  max-width: 220px;
+  object-fit: contain;
 }
 
 .top-header .page-label {
@@ -156,8 +162,12 @@ nav {
     }
 
     .header-title { margin: 0 auto; }
-    .header-logo { height: 44px; }
-
+    .header-logo {
+    height: 30px !important;
+    max-height: 30px !important;
+    width: auto !important;
+    max-width: 170px;
+    }
     .top-header .page-label {
         margin-top: 8px;
         font-size: 0.85rem;

@@ -47,18 +47,24 @@ body {
 
 .header-title {
   margin: 0;
-  font-size: 3rem;
-  font-family: 'cherolina', cursive;
+  line-height: 0;
 }
 
-.header-title .logo-wild {
-  color: rgba(36, 41, 38, 0.559);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+.header-logo-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  max-width: 220px;
+  overflow: hidden;
 }
 
-.header-title .logo-era {
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+.header-logo {
+  display: block;
+  height: 40px !important;
+  max-height: 40px !important;
+  width: auto !important;
+  max-width: 220px;
+  object-fit: contain;
 }
 
 nav {
@@ -241,7 +247,12 @@ nav ul li a:hover { color: #000; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
   .header-title { margin: 0 auto; }
-  .header-logo { height: 44px; }
+  .header-logo {
+    height: 30px !important;
+    max-height: 30px !important;
+    width: auto !important;
+    max-width: 170px;
+  }
 
   .cart-item{
     grid-template-columns: 64px 1fr;
