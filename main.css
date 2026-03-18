@@ -47,18 +47,19 @@ body {
 
 .header-title {
   margin: 0;
-  font-size: 3rem;
-  font-family: 'cherolina', cursive;
+  line-height: 0;
 }
 
-.header-title .logo-wild {
-  color: rgba(36, 41, 38, 0.559);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+.header-logo-link {
+  display: inline-block;
+  line-height: 0;
 }
 
-.header-title .logo-era {
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+.header-logo {
+  display: block;
+  height: 78px;
+  width: auto;
+  object-fit: contain;
 }
 
 .page-label {
@@ -346,7 +347,8 @@ form input:focus { border-color: #77867ebf; outline: none; }
   nav ul { flex-direction: column; padding: 0; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
-  .header-title { margin: 0 auto; font-size: 1.25rem; }
+  .header-title { margin: 0 auto; }
+  .header-logo { height: 44px; }
 
   .about { flex-direction: column; }
   .about-content, .about img { max-width: 100%; }

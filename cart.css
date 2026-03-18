@@ -240,7 +240,8 @@ nav ul li a:hover { color: #000; }
   nav ul { flex-direction: column; }
   nav ul li { text-align: center; padding: 10px 0; }
   .menu-button { position: absolute; top: 20px; right: 10px; font-size: .6rem; }
-  .header-title { margin: 0 auto; font-size: 1.25rem; }
+  .header-title { margin: 0 auto; }
+  .header-logo { height: 44px; }
 
   .cart-item{
     grid-template-columns: 64px 1fr;

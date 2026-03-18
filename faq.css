@@ -155,10 +155,8 @@ nav {
         text-align: center;
     }
 
-    .top-header .header-title {
-    margin: 0 auto;
-    font-size: 1.25rem;
-    }
+    .header-title { margin: 0 auto; }
+    .header-logo { height: 44px; }
 
     .top-header .page-label {
         margin-top: 8px;
